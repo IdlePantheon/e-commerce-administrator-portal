@@ -1,9 +1,5 @@
 import { useMemo } from 'react'
 
-/**
- * Granular "advanced spec" layer of the dual-filter engine — for
- * enthusiasts who already know the exact brand/CPU/GPU/RAM/OS they need.
- */
 export default function AdvancedFilterPanel({ allProducts, filters, onToggle, onMinRAM, onClear }) {
   const options = useMemo(() => {
     const brands = new Set()
@@ -26,4 +22,39 @@ export default function AdvancedFilterPanel({ allProducts, filters, onToggle, on
       gpuVendors: [...gpuVendors].sort(),
       osTags: [...osTags].sort(),
       conditions: [...conditions].sort(),
-    }
+    } }, [allProducts])
+
+  const ramSteps = [0, 16, 32, 64]
+
+  return (
+    <aside className="filter-panel">
+      <h3>Advanced specs</h3>
+
+      <div className="filter-group">
+        <span className="filter-group-label">Brand</span>
+        {options.brands.map((brand) => (
+          <label className="checkbox-row" key={brand}>
+            <input
+              type="checkbox"
+              checked={filters.brands.includes(brand)}
+              onChange={() => onToggle('brands', brand)}
+            />
+            {brand}
+          </label>
+        ))}
+      </div>
+
+      <div className="filter-group">
+        <span className="filter-group-label">Processor architecture</span>
+        {options.cpuArchitectures.map((arch) => (
+          <label className="checkbox-row" key={arch}>
+            <input
+              type="checkbox"
+              checked={filters.cpuArchitectures.includes(arch)}
+              onChange={() => onToggle('cpuArchitectures', arch)}
+            />
+            {arch}
+          </label>
+        ))}
+      </div>
+
