@@ -63,3 +63,25 @@ export default function useProducts() {
         prev.workloadCategory === categoryId ? null : categoryId,
     }))
   }
+    const toggleArrayFilter = (key, value) => {
+    setFilters((prev) => {
+      const current = prev[key]
+
+      const next = current.includes(value)
+        ? current.filter((v) => v !== value)
+        : [...current, value]
+
+      return { ...prev, [key]: next }
+    })
+  }
+    const setMinRAM = (value) => {
+    setFilters((prev) => ({
+      ...prev,
+      minRAM: value,
+    }))
+  }
+
+  const clearFilters = () => {
+    setFilters(DEFAULT_FILTERS)
+    setSearchTerm('')
+  }
