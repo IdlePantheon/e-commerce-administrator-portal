@@ -154,3 +154,18 @@ export default function useProducts() {
       return true
     })
   }, [products, filters, searchTerm])
+  
+    return {
+    products: filteredProducts,
+    allProducts: products,
+    loading,
+    error,
+    filters,
+    searchTerm,
+    setSearchTerm,
+    setWorkloadCategory,
+    toggleArrayFilter,
+    setMinRAM,
+    clearFilters,
+  }
+}
