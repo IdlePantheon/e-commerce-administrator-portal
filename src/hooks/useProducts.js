@@ -85,3 +85,72 @@ export default function useProducts() {
     setFilters(DEFAULT_FILTERS)
     setSearchTerm('')
   }
+
+    const filteredProducts = useMemo(() => {
+    return products.filter((product) => {
+      if (
+        filters.workloadCategory &&
+        product.workloadCategory !== filters.workloadCategory
+      ) {
+        return false
+      }
+
+      if (
+        filters.brands.length &&
+        !filters.brands.includes(product.brand)
+      ) {
+        return false
+      }
+
+      if (
+        filters.cpuArchitectures.length &&
+        !filters.cpuArchitectures.includes(product.cpu.architecture)
+      ) {
+        return false
+      }
+
+      if (
+        filters.gpuVendors.length &&
+        !filters.gpuVendors.includes(product.gpu.vendor)
+      ) {
+        return false
+      }
+
+      if (product.ramGB < filters.minRAM) {
+        return false
+      }
+
+      if (
+        filters.osTags.length &&
+        !filters.osTags.some((tag) =>
+          product.osCompatibility.includes(tag)
+        )
+      ) {
+        return false
+      }
+
+      if (
+        filters.condition.length &&
+        !filters.condition.includes(product.condition)
+      ) {
+        return false
+      }
+
+      if (searchTerm.trim()) {
+        const q = searchTerm.trim().toLowerCase()
+
+        const haystack = `
+          ${product.name}
+          ${product.brand}
+          ${product.cpu.model}
+          ${product.gpu.model}
+        `.toLowerCase()
+
+        if (!haystack.includes(q)) {
+          return false
+        }
+      }
+
+      return true
+    })
+  }, [products, filters, searchTerm])
