@@ -1,0 +1,6 @@
+import useProducts from '../hooks/useProducts.js'
+import IntentFilterNav from '../components/IntentFilterNav.jsx'
+import AdvancedFilterPanel from '../components/AdvancedFilterPanel.jsx'
+import SearchBar from '../components/SearchBar.jsx'
+import ProductGrid from '../components/ProductGrid.jsx'
+import categoriesData from '../data/workloadCategories.js'
