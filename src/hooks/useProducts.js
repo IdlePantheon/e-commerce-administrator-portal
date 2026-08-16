@@ -11,3 +11,11 @@ export const DEFAULT_FILTERS = {
   osTags: [],
   condition: [],
 }
+export default function useProducts() {
+  const [products, setProducts] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+
+  const [filters, setFilters] = useState(DEFAULT_FILTERS)
+  const [searchTerm, setSearchTerm] = useState('') 
+  
