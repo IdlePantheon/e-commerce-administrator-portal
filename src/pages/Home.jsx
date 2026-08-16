@@ -1,62 +1,63 @@
-import useProducts from '../hooks/useProducts.js'
-import IntentFilterNav from '../components/IntentFilterNav.jsx'
-import AdvancedFilterPanel from '../components/AdvancedFilterPanel.jsx'
-import SearchBar from '../components/SearchBar.jsx'
-import ProductGrid from '../components/ProductGrid.jsx'
-import categoriesData from '../data/workloadCategories.js'
+ import { Link } from 'react-router-dom'
 
-export default function Shop() {
-  const {
-    products,
-    allProducts,
-    loading,
-    error,
-    filters,
-    searchTerm,
-    setSearchTerm,
-    setWorkloadCategory,
-    toggleArrayFilter,
-    setMinRAM,
-    clearFilters,
-  } = useProducts()
-
+export default function Home() {
   return (
-    <div className="container">
-      <div className="section-head" style={{ marginTop: 40 }}>
-        <div>
-          <div className="eyebrow">Step 1</div>
-          <h2>What are you using this machine for?</h2>
-        </div>
-      </div>
-
-      <IntentFilterNav
-        categories={categoriesData}
-        activeCategory={filters.workloadCategory}
-        onSelect={setWorkloadCategory}
-      />
-
-      <div className="shop-layout">
-        <AdvancedFilterPanel
-          allProducts={allProducts}
-          filters={filters}
-          onToggle={toggleArrayFilter}
-          onMinRAM={setMinRAM}
-          onClear={clearFilters}
-        />
-
-        <div>
-          <SearchBar value={searchTerm} onChange={setSearchTerm} />
-          <div className="results-meta">
-            {loading ? 'Loading…' : `${products.length} machine${products.length === 1 ? '' : 's'} match`}
+    <>
+      <section className="hero">
+        <div className="container hero-inner">
+          <div>
+            <div className="hero-eyebrow">Diagnose before you buy</div>
+            <h1>
+              Stop buying hardware that&apos;s <span>wrong for the job.</span>
+            </h1>
+            <p>
+              FitStack matches laptops to what you actually do — CAD, video editing, local AI,
+              development, or gaming — so you stop overpaying for power you won&apos;t use, or
+              underbuying into thermal throttling and crashed renders.
+            </p>
+            <div className="hero-actions">
+              <Link to="/shop" className="btn btn-primary">
+                Find my machine
+              </Link>
+              <Link to="/shop" className="btn btn-secondary">
+                Browse by spec
+              </Link>
+            </div>
           </div>
-          <ProductGrid
-            products={products}
-            activeWorkload={filters.workloadCategory}
-            loading={loading}
-            error={error}
-          />
         </div>
-      </div>
-    </div>
+      </section>
+
+      <section className="container">
+        <div className="section-head">
+          <div>
+            <div className="eyebrow">Why FitStack</div>
+            <h2>The mismatch is the problem, not the price tag</h2>
+          </div>
+        </div>
+
+        <div className="intent-nav" style={{ marginBottom: 64 }}>
+          <div className="intent-card">
+            <span className="intent-icon"></span>
+            <span className="intent-label">Gaming laptops crash on CAD renders &mdash; no ISV drivers</span>
+          </div>
+          <div className="intent-card">
+            <span className="intent-icon"></span>
+            <span className="intent-label">Thin ultrabooks throttle under AI training loads</span>
+          </div>
+          <div className="intent-card">
+            <span className="intent-icon"></span>
+            <span className="intent-label">Non-technical buyers overspend on specs they won&apos;t use</span>
+          </div>
+          <div className="intent-card">
+            <span className="intent-icon"></span>
+            <span className="intent-label">Enthusiasts want exact chipsets, not vague &ldquo;gaming&rdquo; tiers</span>
+          </div>
+          <div className="intent-card">
+            <span className="intent-icon"></span>
+            <span className="intent-label">FitStack filters by workload first, specs second</span>
+          </div>
+        </div>
+      </section>
+    </>
   )
 }
