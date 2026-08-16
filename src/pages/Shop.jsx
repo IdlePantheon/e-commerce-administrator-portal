@@ -4,3 +4,21 @@ import AdvancedFilterPanel from '../components/AdvancedFilterPanel.jsx'
 import SearchBar from '../components/SearchBar.jsx'
 import ProductGrid from '../components/ProductGrid.jsx'
 import categoriesData from '../data/workloadCategories.js'
+
+export default function Shop() {
+  const {
+    products,
+    allProducts,
+    loading,
+    error,
+    filters,
+    searchTerm,
+    setSearchTerm,
+    setWorkloadCategory,
+    toggleArrayFilter,
+    setMinRAM,
+    clearFilters,
+  } = useProducts()
+
+ 
+}
