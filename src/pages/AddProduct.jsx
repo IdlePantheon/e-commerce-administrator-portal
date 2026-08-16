@@ -12,16 +12,16 @@ export default function AddProduct() {
   async function handleSubmit(values) {
     setStatus('Saving…')
     try {
-      const res = await fetch(${API_URL}/products, {
+     const res = await fetch(`${API_URL}/products`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(toProductPayload(values)),
       })
       if (!res.ok) throw new Error('Failed to save product')
       const saved = await res.json()
-      navigate(/product/${saved.id})
+      navigate(`/product/${saved.id}`)
     } catch (err) {
-      setStatus(Error: ${err.message})
+      setStatus(`Error: ${err.message}`)
     }
   }
 
