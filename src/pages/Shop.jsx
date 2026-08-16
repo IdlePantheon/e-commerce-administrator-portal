@@ -20,5 +20,32 @@ export default function Shop() {
     clearFilters,
   } = useProducts()
 
- 
+  return (
+    <div className="container">
+      <div className="section-head" style={{ marginTop: 40 }}>
+        <div>
+          <div className="eyebrow">Step 1</div>
+          <h2>What are you using this machine for?</h2>
+        </div>
+      </div>
+
+      <IntentFilterNav
+        categories={categoriesData}
+        activeCategory={filters.workloadCategory}
+        onSelect={setWorkloadCategory}
+      />
+
+      <div className="shop-layout">
+        <AdvancedFilterPanel
+          allProducts={allProducts}
+          filters={filters}
+          onToggle={toggleArrayFilter}
+          onMinRAM={setMinRAM}
+          onClear={clearFilters}
+        />
+
+       
+      </div>
+    </div>
+  )
 }
