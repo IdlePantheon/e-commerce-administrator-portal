@@ -6,7 +6,7 @@ const CATEGORY_LABELS = {
   'cad-engineering': 'CAD & Engineering',
   'video-editing': 'Video Editing',
   'ai-ml': 'AI & ML',
-  'gaming': 'Gaming',
+  gaming: 'Gaming',
 }
 
 function badgeClass(condition) {
