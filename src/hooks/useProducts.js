@@ -18,7 +18,7 @@ export default function useProducts() {
 
   const [filters, setFilters] = useState(DEFAULT_FILTERS)
   const [searchTerm, setSearchTerm] = useState('') 
-  
+
     useEffect(() => {
     let cancelled = false
 
@@ -55,3 +55,11 @@ export default function useProducts() {
       cancelled = true
     }
   }, [])
+
+    const setWorkloadCategory = (categoryId) => {
+    setFilters((prev) => ({
+      ...prev,
+      workloadCategory:
+        prev.workloadCategory === categoryId ? null : categoryId,
+    }))
+  }
