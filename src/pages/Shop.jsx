@@ -44,7 +44,18 @@ export default function Shop() {
           onClear={clearFilters}
         />
 
-       
+        <div>
+          <SearchBar value={searchTerm} onChange={setSearchTerm} />
+          <div className="results-meta">
+            {loading ? 'Loading…' : `${products.length} machine${products.length === 1 ? '' : 's'} match`}
+          </div>
+          <ProductGrid
+            products={products}
+            activeWorkload={filters.workloadCategory}
+            loading={loading}
+            error={error}
+          />
+        </div>
       </div>
     </div>
   )
