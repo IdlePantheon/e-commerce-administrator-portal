@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 
+// Granular "advanced spec" layer of the dual-filter engine .for enthusiasts who already know the exact brand/CPU/GPU/RAM/OS they need.
 export default function AdvancedFilterPanel({ allProducts, filters, onToggle, onMinRAM, onClear }) {
   const options = useMemo(() => {
     const brands = new Set()
