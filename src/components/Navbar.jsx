@@ -8,7 +8,6 @@ export default function Navbar() {
     <header className="navbar">
       <div className="container navbar-inner">
         <NavLink to="/" className="brand">
-          <span className="brand-mark" aria-hidden="true"></span>
           FitStack
         </NavLink>
 

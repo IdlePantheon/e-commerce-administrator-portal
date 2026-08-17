@@ -68,7 +68,7 @@ export default function AdminPortal(){
                         <td>{product.name}</td>
                         <td>{product.brand}</td>
                         <td>{product.workloadCategory}</td>
-                        <td className="mono">${product.priceKES.toLocaleString()}</td>
+                        <td className="mono">KES{product.priceUSD.toLocaleString()}</td>
                         <td>{product.condition}</td>
                         <td>
                        <div className="admin-actions">

@@ -24,8 +24,7 @@ export default function Shop() {
     <div className="container">
       <div className="section-head" style={{ marginTop: 40 }}>
         <div>
-          <div className="eyebrow">Step 1</div>
-          <h2>What are you using this machine for?</h2>
+       <h2>What are you using this machine for?</h2>
         </div>
       </div>
 

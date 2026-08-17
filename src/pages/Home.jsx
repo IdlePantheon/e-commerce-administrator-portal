@@ -6,14 +6,11 @@ export default function Home() {
       <section className="hero">
         <div className="container hero-inner">
           <div>
-            <div className="hero-eyebrow">Diagnose before you buy</div>
             <h1>
-              Stop buying hardware that&apos;s <span>wrong for the job.</span>
+              Stop buying hardware that's<span>wrong for the job.</span>
             </h1>
             <p>
-              FitStack matches laptops to what you actually do — CAD, video editing, local AI,
-              development, or gaming — so you stop overpaying for power you won&apos;t use, or
-              underbuying into thermal throttling and crashed renders.
+              Paying For overpriced Gadgets wasn't your fault. But after finding this site, it just might be. Get the right hardware for your work.
             </p>
             <div className="hero-actions">
               <Link to="/shop" className="btn btn-primary">
@@ -29,16 +26,16 @@ export default function Home() {
 
       <section className="container">
         <div className="section-head">
+
           <div>
-            <div className="eyebrow">Why FitStack</div>
-            <h2>The mismatch is the problem, not the price tag</h2>
+            <h2>It's not the laptop, it's you.</h2>
           </div>
         </div>
 
         <div className="intent-nav" style={{ marginBottom: 64 }}>
           <div className="intent-card">
             <span className="intent-icon"></span>
-            <span className="intent-label">Gaming laptops crash on CAD renders &mdash; no ISV drivers</span>
+            <span className="intent-label">Gaming laptops crash on CAD renders because of missing ISV drivers</span>
           </div>
           <div className="intent-card">
             <span className="intent-icon"></span>
@@ -46,15 +43,15 @@ export default function Home() {
           </div>
           <div className="intent-card">
             <span className="intent-icon"></span>
-            <span className="intent-label">Non-technical buyers overspend on specs they won&apos;t use</span>
+            <span className="intent-label">Non-technical buyers overspend on specs they won't use.</span>
           </div>
           <div className="intent-card">
             <span className="intent-icon"></span>
-            <span className="intent-label">Enthusiasts want exact chipsets, not vague &ldquo;gaming&rdquo; tiers</span>
+            <span className="intent-label">Enthusiasts want exact chipsets, not vague, gaming tiers.</span>
           </div>
           <div className="intent-card">
             <span className="intent-icon"></span>
-            <span className="intent-label">FitStack filters by workload first, specs second</span>
+            <span className="intent-label">We filter by work specifications, Get the right hardware in seconds.</span>
           </div>
         </div>
       </section>
