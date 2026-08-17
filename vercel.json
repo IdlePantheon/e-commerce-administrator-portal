@@ -1,7 +1,7 @@
 {
   "buildCommand": "cd e-commerce-administrator-portal && npm install && npm run build",
   "outputDirectory": "e-commerce-administrator-portal/dist",
-  "installCommand": "cd e-commerce-administrator-portal && npm install",
+  "installCommand": "cd e-commerce-administrator-portal",
   "rewrites": [
     {
       "source": "/(.*)",
