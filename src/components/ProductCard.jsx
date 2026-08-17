@@ -57,7 +57,7 @@ export default function ProductCard({ product, activeWorkload }) {
       </Link>
 
       <div className="card-bottom-row">
-        <span className="product-price">${product.priceUSD.toLocaleString()}</span>
+        <span className="product-price">${product.priceKES.toLocaleString()}</span>
         <button type="button" className="btn btn-secondary" onClick={() => addToCart(product)}>
           Add to cart
         </button>
