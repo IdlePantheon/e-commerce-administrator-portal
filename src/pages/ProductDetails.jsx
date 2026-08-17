@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { useCartContext } from '../context/CartContext.jsx'
 
-const API_URL = 'http://localhost:4000'
+const API_URL = 'https://6a82e1abcb486d2434030088.mockapi.io/products'
 
 export default function ProductDetails() {
   const { id } = useParams()

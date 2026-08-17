@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useCallback } from 'react'
 
-const API_URL = 'http://localhost:4000'
+const API_URL = 'https://6a82e1abcb486d2434030088.mockapi.io/:products'
 
 const CartContext = createContext(null)
 

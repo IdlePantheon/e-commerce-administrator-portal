@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import ProductForm, { toFormValues, toProductPayload } from '../components/ProductForm.jsx'
 
-const API_URL = 'http://localhost:4000'
+const API_URL = 'https://6a82e1abcb486d2434030088.mockapi.io/products'
 
 export default function EditProduct() {
   const { id } = useParams()

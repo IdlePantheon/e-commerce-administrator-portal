@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
 
-const API_URL = 'http://localhost:4000'
+const API_URL = 'https://6a82e1abcb486d2434030088.mockapi.io/products'
 
 export const DEFAULT_FILTERS = {
   workloadCategory: null,
