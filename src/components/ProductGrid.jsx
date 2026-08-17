@@ -13,7 +13,7 @@ export default function ProductGrid({ products, activeWorkload, loading, error }
     return (
       <div className="product-grid">
         <p className="empty-state">
-          Couldn&apos;t reach the inventory server. Make sure <code>json-server</code> is running on port 4000.
+          Couldn&apos;t reach the inventory server. Please try again later.
         </p>
       </div>
     )
