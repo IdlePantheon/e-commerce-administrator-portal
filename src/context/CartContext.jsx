@@ -1,6 +1,11 @@
 import { createContext, useContext, useState, useCallback } from 'react'
 
-const API_URL = 'https://6a82e1abcb486d2434030089.mockapi.io'
+const BIN_URL = 'https://api.jsonbin.io/v3/b/6a8311f2da38895dfeeedf1a'
+const HEADERS = {
+    'X-Master-Key': '$2a$10$eXIhEk6NzdX.4haxOo0Zm.ivsYHkCL1eTbO0hda4Q6Hpaq1JU.7lq',
+    'Content-Type': 'application/json'
+}
+
 
 const CartContext = createContext(null)
 
@@ -12,7 +17,7 @@ export function CartProvider({ children }) {
   const fetchCart = useCallback(async () => {
     setLoading(true)
     try {
-      const res = await fetch(`${API_URL}/cart`)
+      const res = await fetch(`${BIN_URL}`, { headers: HEADERS })
       const data = await res.json()
       setItems(data)
     } catch (err) {
@@ -40,9 +45,9 @@ export function CartProvider({ children }) {
           quantity: 1,
         }
         try {
-          const res = await fetch(`${API_URL}/cart`, {
+          const res = await fetch(`${BIN_URL}`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: HEADERS,
             body: JSON.stringify(cartItem),
           })
           const saved = await res.json()
@@ -62,9 +67,9 @@ export function CartProvider({ children }) {
   const updateQuantity = useCallback(async (cartId, quantity) => {
     if (quantity < 1) return
     try {
-      const res = await fetch(`${API_URL}/cart/${cartId}`, {
+      const res = await fetch(`${BIN_URL}`, {
         method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
+        headers: HEADERS,
         body: JSON.stringify({ quantity }),
       })
       const updated = await res.json()
@@ -77,7 +82,10 @@ export function CartProvider({ children }) {
   // DELETE — remove a line item from the cart
   const removeFromCart = useCallback(async (cartId) => {
     try {
-      await fetch(`${API_URL}/cart/${cartId}`, { method: 'DELETE' })
+      await fetch(`${BIN_URL}`, {
+        method: 'DELETE',
+        headers: HEADERS,
+      })
       setItems((prev) => prev.filter((item) => item.id !== cartId))
     } catch (err) {
       console.error('Failed to remove item', err)

@@ -1,6 +1,13 @@
 import {useEffect, useState} from 'react'
 import {Link} from 'react-router-dom'
-const API_URL = 'https://6a82e1abcb486d2434030089.mockapi.io'
+
+//Json Bin
+const BIN_URL = 'https://api.jsonbin.io/v3/b/6a8311f2da38895dfeeedf1a'
+const HEADERS = {
+    'X-Master-Key': '$2a$10$eXIhEk6NzdX.4haxOo0Zm.ivsYHkCL1eTbO0hda4Q6Hpaq1JU.7lq',
+    'Content-Type': 'application/json'
+}
+
 export default function AdminPortal(){
     const [products, setProducts] = useState([])
     const [loading , setLoading] = useState(true)
@@ -12,7 +19,7 @@ export default function AdminPortal(){
         setLoading(true)
         setError(null)
         try{
-            const res=await fetch(`${API_URL}/products`)
+            const res=await fetch(`${BIN_URL}`, {headers: HEADERS})
             if(!res.ok)throw new Error('Failed to load inventory')
             const data=await res.json()
             setProducts(data)
@@ -28,7 +35,7 @@ export default function AdminPortal(){
         const confirmed=window.confirm('Remove this product from the inventory?This cannot be undone.')
         if (!confirmed) return
         try{
-            await fetch(`${API_URL}/products/${id}`, {method:'DELETE'})
+            await fetch(`${BIN_URL}`, {method:'DELETE'})
          setProducts((prev) => prev.filter((p) =>p.id!==id))
         }catch(err) {
             console.error('Failed to delete product', err)
@@ -47,7 +54,7 @@ export default function AdminPortal(){
                     </Link>
                     </div>
      {loading && <p className="empty-state">Loading inventory...</p>}
-     {error && <p className="empty-state">{error}. Is json-server running on port 4000?
+     {error && <p className="empty-state">{error}. Couldn't reach the inventory API.
         </p>}
         {!loading && !error &&(<table
             className="admin-table">
@@ -88,11 +95,4 @@ export default function AdminPortal(){
         </div>
     )
 }
-
-
-    
-
-    
-        
-    
 
