@@ -64,7 +64,7 @@ export default function ProductDetails() {
         <span className="product-brand">{product.brand}</span>
         <h1 style={{ fontSize: 28, margin: '8px 0 16px' }}>{product.name}</h1>
         <p className="product-price" style={{ fontSize: 24 }}>
-          ${product.priceUSD.toLocaleString()}
+          ${product.priceKES.toLocaleString()}
         </p>
 
         <table className="spec-table">

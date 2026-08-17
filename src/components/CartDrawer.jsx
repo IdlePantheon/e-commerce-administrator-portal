@@ -45,7 +45,7 @@ export default function CartDrawer() {
                   Remove
                 </button>
               </div>
-              <span className="mono">${(item.priceUSD * item.quantity).toLocaleString()}</span>
+              <span className="mono">${(item.priceKES * item.quantity).toLocaleString()}</span>
             </div>
           ))}
         </div>
