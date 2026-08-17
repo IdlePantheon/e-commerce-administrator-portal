@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import ProductForm, { toProductPayload } from '../components/ProductForm.jsx'
 
-const API_URL = 'https://6a82e1abcb486d2434030089.mockapi.io'
+const API_URL = 'https://6a82e1abcb486d2434030088.mockapi.io'
 
 export default function AddProduct() {
   const navigate = useNavigate()
