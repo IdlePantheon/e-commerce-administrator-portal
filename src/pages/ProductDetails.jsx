@@ -2,12 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { useCartContext } from '../context/CartContext.jsx'
 
-const BIN_URL = 'https://api.jsonbin.io/v3/b/6a8311f2da38895dfeeedf1a'
-const HEADERS = {
-    'X-Master-Key': '$2a$10$eXIhEk6NzdX.4haxOo0Zm.ivsYHkCL1eTbO0hda4Q6Hpaq1JU.7lq',
-    'Content-Type': 'application/json'
-}
-
+const API_URL = 'https://6a82e1abcb486d2434030088.mockapi.io'
 
 export default function ProductDetails() {
   const { id } = useParams()
@@ -21,7 +16,7 @@ export default function ProductDetails() {
     setLoading(true)
     setNotFound(false)
 
-    fetch(`${BIN_URL}`, { headers: HEADERS })
+    fetch(`${API_URL}/products/${id}`)
       .then((res) => {
         if (!res.ok) throw new Error('not found')
         return res.json()
